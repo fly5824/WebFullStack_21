@@ -9,13 +9,18 @@ public class MemberDAOTest {
 		
 		MemberDAO memberDAO = new MemberDAO();
 		MemberDTO memberDTO = new MemberDTO();
-		memberDTO.setID("iu1");
-		memberDTO.setPW("pw1");
+		
+		memberDTO.setID("id3");
+		memberDTO.setPW("pw3");
+		memberDTO.setNAME("pw3");
+		memberDTO.setEMAIL("pw3@naver.com");
+		memberDTO.setMOBILE("01033333333");
+		
 		
 		try {
-			memberDTO =memberDAO.logIn(memberDTO);
+			int result =memberDAO.memberJoin(memberDTO);
 			
-			System.out.println(memberDTO != null);
+			System.out.println(result != 0);
 			
 		} catch (Exception e) {
 			// TODO Auto-generated catch block

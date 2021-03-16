@@ -4,7 +4,14 @@ public class MemberDTO {
 	
 private String ID;
 private String PW;
+
+private String EMAIL;
+private String NAME;
+
 private String MOBILE;
+
+
+
 public String getID() {
 	return ID;
 }
@@ -35,7 +42,5 @@ public String getNAME() {
 public void setNAME(String nAME) {
 	NAME = nAME;
 }
-private String EMAIL;
-private String NAME;
 
 }
