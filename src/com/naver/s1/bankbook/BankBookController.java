@@ -33,7 +33,7 @@ public class BankBookController extends HttpServlet {
     	 //컨트롤러 객체생성 후 자동 호출되는 초기화 메서드
     	bankBookService = new BankBookService();
     	BankBookDAO bankBookDAO = new BankBookDAO();
-    	
+    	bankBookService.setBankBookDAO(bankBookDAO);
     }
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
@@ -47,11 +47,11 @@ public class BankBookController extends HttpServlet {
 		
 		try {
 		if(uri.equals("bankbookList.do")) {
-		actionForward = backBookService.getList(request);
+		actionForward = bankBookService.getList(request);
 		//actionforward 안에 패스정보, 트루폴스 정보있음
 		}
 		}catch (Exception e) {
-			// TODO: handle exception
+			e.printStackTrace();
 		}
 		
 		//forward or redirect 

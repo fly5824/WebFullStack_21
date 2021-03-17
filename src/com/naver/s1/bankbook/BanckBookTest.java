@@ -7,7 +7,7 @@ public class BanckBookTest {
 	public static void main(String[] args) {
 		
 		BankBookDAO bankBookDAO = new BankBookDAO();
-		BankBookDTO bankBookDTO = new BankBookDTO();
+		
 		
 		List<BankBookDTO> ar;
 		try {

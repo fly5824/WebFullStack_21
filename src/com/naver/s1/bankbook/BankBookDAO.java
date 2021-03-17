@@ -30,7 +30,7 @@ public class BankBookDAO {
 		while(rs.next()) {
 			BankBookDTO bankBookDTO = new BankBookDTO();
 			bankBookDTO.setBookNumber(rs.getLong("bookNumber"));
-			bankBookDTO.setBookname(rs.getString("bookName"));
+			bankBookDTO.setBookname(rs.getString("bookname"));
 			bankBookDTO.setBookRate(rs.getDouble("bookRate"));
 			bankBookDTO.setBookSale(rs.getString("bookSale"));
 			
@@ -39,6 +39,7 @@ public class BankBookDAO {
 		rs.close();
 		st.close();
 		con.close();
+		
 		return ar;
 	}
 }

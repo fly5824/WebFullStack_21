@@ -61,11 +61,13 @@
 			<tbody>
 			<% for(int i=0;i<ar.size();i++){ %>
 				<tr>
-					<td><%=ar.get(i).getBookName() %></td>
-					<td><%=ar.get(i).getBookRate() %> </td>
-					<td><%=ar.get(i).getBookSale() %> </td>
+					<td><%=ar.get(i).getBookname()%> </td>
+					<td><%=ar.get(i).getBookRate()%> </td>
+					<td><%=ar.get(i).getBookSale()%> </td>
 				</tr>
 			<%} %>	
+			
+			
 			</tbody>
 			
 		</table>
