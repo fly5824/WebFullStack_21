@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.naver.s1.util.ActionForward;
 
+
 /**
  * Servlet implementation class MemberController
  */
@@ -33,54 +34,57 @@ public class MemberController extends HttpServlet {
     	memberService = new MemberService();
     	MemberDAO memberDAO = new MemberDAO();
     	memberService.setMemberDAO(memberDAO);
-    	// TODO Auto-generated method stub
- 
     }
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		System.out.println("member controlloer!!!");
+		System.out.println("Member Controller!!!!");
 		
 		String path = request.getServletPath();
-		String uri = request.getRequestURI();
+		String uri	= request.getRequestURI();
 		System.out.println(path);
 		System.out.println(uri);
-		
-		String result ="";
-		
+		String result="";
+		//subString으로 마지막 주소 
+		//1. 자를려고 하는 시작 인덱스 번호 찾기
 		int index = uri.lastIndexOf("/");
-		result = uri.substring(index+1);
-		
-		//subString으로 마지막 주소만 꺼내오기
-		//1. 자르려고 하는 시작 인덱스번호 찾기
-		
 		//2. 해당 인덱스부터 잘라오기
-		
+		result = uri.substring(index+1);
 		System.out.println(result);
 		String pathInfo="";
 		
-		ActionForward actionForward = null;
+		ActionForward actionFoward=null;
+		
 		
 		if(result.equals("memberLogin.do")) {
 			System.out.println("로그인 처리");
 			pathInfo="../WEB-INF/member/memberLogin.jsp";
 		}else if(result.equals("memberJoin.do")) {
 
-		try {
-			actionForward=memberService.memberJoin(request);
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+			try {
+				actionFoward = memberService.memberJoin(request);
+			} catch (Exception e) {
+				
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
 			
 		}else {
 			System.out.println("그 외 다른 처리");
 		}
-
-		RequestDispatcher view = request.getRequestDispatcher(actionForward.getPath());
-		view.forward(request, response);
+		
+		if(actionFoward.isCheck()) {
+			//foward
+			RequestDispatcher view = request.getRequestDispatcher(actionFoward.getPath());
+			view.forward(request, response);
+		}else {
+			//redirect
+			response.sendRedirect(actionFoward.getPath());
+		}
+		
 	}
 
 	/**

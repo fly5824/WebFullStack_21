@@ -18,7 +18,6 @@
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 </head>
 <body>
-
 	<nav class="navbar navbar-inverse">
 		<div class="container-fluid">
 			<div class="navbar-header">
@@ -46,55 +45,51 @@
 
 	<div class="container">
 		<div class="row">
-
-			<h1>member join page</h1>
+			<h1>Member Join Page</h1>
 			<form class="form-horizontal" action="./memberJoin.do" method="post">
 				<div class="form-group">
-					<label class="control-label col-sm-2" for="ID">ID:</label>
+					<label class="control-label col-sm-2" for="id">ID:</label>
 					<div class="col-sm-10">
-						<input type="text" class="form-control" id="ID"
-							placeholder="Enter ID" name="ID">
+						<input type="text" class="form-control" id="id"
+							placeholder="Enter ID" name="id">
 					</div>
 				</div>
-				
+
+
+
 				<div class="form-group">
-					<label class="control-label col-sm-2" for="PASSWORD">PASSWORD:</label>
+					<label class="control-label col-sm-2" for="pw">Password:</label>
 					<div class="col-sm-10">
-						<input type="password" class="form-control" id="PASSWORD"
-							placeholder="Enter PASSWORD" name="pwd">
+						<input type="password" class="form-control" id="pw"
+							placeholder="Enter password" name="pw">
 					</div>
 				</div>
-				
-					<div class="form-group">
-					<label class="control-label col-sm-2" for="NAME">NAME:</label>
-					<div class="col-sm-10">
-						<input type="text" class="form-control" id="NAME"
-							placeholder="Enter NAME" name="NAME">
-					</div>
-				</div>
-					<div class="form-group">
-					<label class="control-label col-sm-2" for="EMAIL">EMAIL:</label>
-					<div class="col-sm-10">
-						<input type="text" class="form-control" id="EMAIL"
-							placeholder="Enter EMAIL" name="EMAIL">
-					</div>
-				</div>
-					<div class="form-group">
-					<label class="control-label col-sm-2" for="MOBILE">MOBILE:</label>
-					<div class="col-sm-10">
-						<input type="text" class="form-control" id="MOBILE"
-							placeholder="Enter MOBILE" name="MOBILE">
-					</div>
-				</div>
-				
+
 				<div class="form-group">
-					<div class="col-sm-offset-2 col-sm-10">
-						<div class="checkbox">
-							<label><input type="checkbox" name="remember">
-								Remember me</label>
-						</div>
+					<label class="control-label col-sm-2" for="name">Name:</label>
+					<div class="col-sm-10">
+						<input type="text" class="form-control" id="name"
+							placeholder="Enter Name" name="name">
 					</div>
 				</div>
+
+
+				<div class="form-group">
+					<label class="control-label col-sm-2" for="email">Email:</label>
+					<div class="col-sm-10">
+						<input type="email" class="form-control" id="email"
+							placeholder="Enter email" name="email">
+					</div>
+				</div>
+				
+							<div class="form-group">
+					<label class="control-label col-sm-2" for="phone">Phone:</label>
+					<div class="col-sm-10">
+						<input type="text" class="form-control" id="phone"
+							placeholder="Enter Phone" name="phone">
+					</div>
+				</div>
+
 				<div class="form-group">
 					<div class="col-sm-offset-2 col-sm-10">
 						<button type="submit" class="btn btn-default">Submit</button>
@@ -103,8 +98,7 @@
 			</form>
 
 		</div>
+
 	</div>
-
-
 </body>
 </html>

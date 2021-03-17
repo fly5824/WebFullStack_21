@@ -4,33 +4,40 @@ import javax.servlet.http.HttpServletRequest;
 
 import com.naver.s1.util.ActionForward;
 
-public class MemberService {
 
+
+public class MemberService {
+	
 	private MemberDAO memberDAO;
+	
+	
+	
 	public void setMemberDAO(MemberDAO memberDAO) {
 		this.memberDAO = memberDAO;
 	}
 
+	//memberLogin
 	
-	public ActionForward memberJoin(HttpServletRequest request) throws Exception {
-		//DAO메서드 호출
-		
-		System.out.println("member Service");
-		ActionForward actionForward = new ActionForward();
+
+	public ActionForward memberJoin(HttpServletRequest request)throws Exception{
+		ActionForward actionFoward = new ActionForward();
 		String method = request.getMethod();
-		actionForward.setPath("../WEB-INF/member/memberJoin.jsp");
-		
+		actionFoward.setPath("../WEB-INF/member/memberJoin.jsp");
+		actionFoward.setCheck(true);
 		if(method.toUpperCase().equals("POST")) {
 			MemberDTO memberDTO = new MemberDTO();
-			memberDTO.setID(request.getParameter("ID"));
-			memberDTO.setPW(request.getParameter("PW"));
-			memberDTO.setNAME(request.getParameter("NAME"));
-			memberDTO.setEMAIL(request.getParameter("EMAIL"));
-			memberDTO.setMOBILE(request.getParameter("MOBILE"));
+			memberDTO.setID(request.getParameter("id"));
+			memberDTO.setPW(request.getParameter("pw"));
+			memberDTO.setNAME(request.getParameter("name"));
+			memberDTO.setEMAIL(request.getParameter("email"));
+			memberDTO.setMOBILE(request.getParameter("phone"));
 			int result = memberDAO.memberJoin(memberDTO);
-			actionForward.setPath("../index.jsp");
+			actionFoward.setPath("../index.do");
+			actionFoward.setCheck(false);
 		}
 		
-		return actionForward;
+		
+		return actionFoward;
 	}
+
 }
