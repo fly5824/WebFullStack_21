@@ -39,6 +39,8 @@ public class BankBookController extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+		
 		//   /WebFullStac_21/bankbook/bankbookList.do
 		String uri = request.getRequestURI();
 		int index = uri.lastIndexOf("/"); // 슬러시의 인덱스번호찾기
@@ -49,8 +51,13 @@ public class BankBookController extends HttpServlet {
 		if(uri.equals("bankbookList.do")) {
 		actionForward = bankBookService.getList(request);
 		//actionforward 안에 패스정보, 트루폴스 정보있음
+		}else if(uri.equals("bankbookSelect.do")){
+			actionForward = bankBookService.getSelect(request);
+		}else if(uri.equals("bankbookWrite.do")){
+			actionForward = bankBookService.setWrite(request);
 		}
 		}catch (Exception e) {
+			System.out.println("errrrrrrr");
 			e.printStackTrace();
 		}
 		
